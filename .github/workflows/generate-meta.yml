@@ -1,0 +1,27 @@
+name: Generate Meta Files
+on:
+  workflow_dispatch: {}
+jobs:
+  generate-meta:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Create Branch
+        uses: peterjgrainger/action-create-branch@v2.2.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          branch: "release-notes"
+          sha: "${{ github.event.pull_request.head.sha }}"
+      - name: Generate Meta Files
+        uses: jbltx/unity-create@v1.1
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          unityVersion: 2022.2.18f1
+          projectPath: ./
+      - name: Create Pull Request
+        uses: gr2m/create-or-update-pull-request-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
