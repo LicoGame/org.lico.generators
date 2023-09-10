@@ -15,12 +15,13 @@ jobs:
           branch: "release-notes"
           sha: "${{ github.event.pull_request.head.sha }}"
       - name: Generate Meta Files
-        uses: jbltx/unity-create@v1.1
+        uses: Angeart/unity-create@main
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
-          unityVersion: 2022.2.18f1
+          unityVersion: 2022.3.9f1
           projectPath: ./
+          containerVersion: 2
       - name: Create Pull Request
         uses: gr2m/create-or-update-pull-request-action@v1
         env:
