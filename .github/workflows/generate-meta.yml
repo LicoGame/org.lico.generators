@@ -5,8 +5,6 @@ jobs:
   generate-meta:
     runs-on: ubuntu-latest
     steps:
-      - name: Create Assets Directory
-        run: mkdir Assets
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -30,10 +28,10 @@ jobs:
           projectPath: ./
           containerVersion: 2
       - name: Create Pull Request
-        uses: gr2m/create-or-update-pull-request-action@v1
+        uses: peter-evans/create-pull-request@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           commit-message: "Generate Meta Files"
-          path: ./Assets
           branch: "generate-meta"
+          path: ./Assets
