@@ -29,6 +29,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          title: "Generate Meta Files"
           commit-message: "Generate Meta Files"
           branch: "generate-meta"
           path: ./Assets
