@@ -16,9 +16,6 @@ jobs:
         with:
           branch: "generate-meta"
           sha: "${{ github.event.pull_request.head.sha }}"
-        # TODO https://github.com/LicoGame/org.lico.generators/pull/2
-        # TODO とんでもない差分が生まれてしまうので、必要なファイルだけAddするように変更
-        # TODO DLLのmetaファイルが生成されていないのでAssets配下にDLLを置くようにする
       - name: Generate Meta Files
         uses: Angeart/unity-create@main
         env:
