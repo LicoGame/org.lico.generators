@@ -4,5 +4,8 @@
   "version": "0.2.0",
   "unity": "2022.2",
   "displayName": "Lico Generators",
-  "dependencies": {}
+  "dependencies": {},
+  "author": {
+    "name": "Lico.org"
+  }
 }
