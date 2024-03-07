@@ -1,7 +1,7 @@
 {
   "name": "org.lico.generators",
   "description": "A package provides generators",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "unity": "2022.2",
   "displayName": "Lico.Generators",
   "dependencies": {},
